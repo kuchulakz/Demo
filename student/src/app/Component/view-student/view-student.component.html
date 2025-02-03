@@ -1,0 +1,20 @@
+<h3>Student Details</h3>
+<input type="text" placeholder="Search using ID / Name" (input)="searchValue($event)">
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Date Of Birth</th>
+        <th colspan="3">Action</th>
+    </tr>
+    <tr *ngFor="let st of filterData$ | async">
+        <td>{{ st.id }}</td>
+        <td>{{ st.name }}</td>
+        <td>{{ st.phone }}</td>
+        <td>{{ st.dob }}</td>
+        <td><a routerLink="/viewById/{{ st.id }}">View</a></td>
+        <td><a routerLink="/update/{{ st.id }}">Update</a></td>
+        <td><a routerLink="/view/{{ st.id }}">Delete</a></td>
+    </tr>
+</table>

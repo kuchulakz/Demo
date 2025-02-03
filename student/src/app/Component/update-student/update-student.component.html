@@ -1,0 +1,22 @@
+<h3>Update Student</h3>
+<form [formGroup]="fg" (ngSubmit)="updateStudent()">
+    <label>Name:</label>
+    <input type="text" name="name" id="name" placeholder="Enter Name" formControlName="name"><br>
+    <div *ngIf="fg.get('name')?.invalid && (fg.get('name')?.touched || fg.get('name')?.dirty)">
+        <small *ngIf="fg.get('name')?.hasError('required')">Name is required</small>
+    </div><br>
+    <label>Phone Number:</label>
+    <input type="text" name="phone" id="phone" placeholder="Enter phone number" formControlName="phone"><br>
+    <div *ngIf="fg.get('phone')?.invalid && (fg.get('phone')?.touched || fg.get('phone')?.dirty)">
+        <small *ngIf="fg.get('phone')?.hasError('required')">Phone number is required</small><br>
+        <small *ngIf="fg.get('phone')?.hasError('ret')">Phone number is inavlid</small><br>
+        <small *ngIf="fg.get('phone')?.hasError('maxlength')">Phone number should be 10 digit</small>
+    </div><br>
+    <label>Date of Birth:</label>
+    <input type="text" name="dob" id="dob" placeholder="Enter date of birth" formControlName="dob"><br>
+    <div *ngIf="fg.get('dob')?.invalid && (fg.get('dob')?.touched || fg.get('dob')?.dirty)">
+        <small *ngIf="fg.get('dob')?.hasError('required')">Date of birth is required</small><br>
+        <small *ngIf="fg.get('dob')?.hasError('ret')">Date of birth is inavlid (dd-mm-yyyy)</small><br>
+    </div><br>
+    <input type="submit" value="Update" [disabled]="fg.invalid">
+</form>
