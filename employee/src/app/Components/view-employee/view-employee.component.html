@@ -1,0 +1,16 @@
+<h1>Employee Details</h1>
+<input type="text" (input)="getFilterData($event)">
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>phone</th>
+        <th>action</th>
+    </tr>
+    <tr *ngFor="let e of filterData$ | async">
+        <td>{{ e.id }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.phone }}</td>
+        <td><a [routerLink]="/view.{{ e.id }}">Delete</a></td>
+    </tr>
+</table>

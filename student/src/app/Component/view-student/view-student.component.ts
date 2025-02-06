@@ -20,11 +20,11 @@ export class ViewStudentComponent implements OnInit
 
   ngOnInit(): void {
     this.viewAll()
-    this.id = String(this.actRoute.snapshot.paramMap.get('id'))
-    if(this.id)
-    {
-      this.deleteStudent(this.id)
-    }
+    // this.id = String(this.actRoute.snapshot.paramMap.get('id'))
+    // if(this.id)
+    // {
+    //   this.deleteStudent(this.id)
+    // }
   }
 
   viewAll()
@@ -34,6 +34,7 @@ export class ViewStudentComponent implements OnInit
     (
       map(d => d.sort((a:Student,b:Student) => b.phone.toString().localeCompare(a.phone.toString())))
     );
+    
   }
 
   searchValue(event: any)

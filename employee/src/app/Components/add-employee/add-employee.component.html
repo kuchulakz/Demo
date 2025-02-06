@@ -1,0 +1,21 @@
+<h1>Register Employee</h1>
+<form [formGroup]="fg" (ngSubmit)="onSubmit()">
+    <label>Name:</label> &nbsp;
+    <input type="text" id="name" formControlName="name"><br>
+    <div *ngIf="fg.get('name')?.invalid && (fg.get('name')?.touched || fg.get('name')?.dirty)">
+        <small *ngIf="fg.get('name')?.hasError('required')">Name is required</small>
+    </div><br>
+
+    <label>Phone:</label> &nbsp;
+    <input type="text" formControlName="phone"><br>
+    <div *ngIf="fg.get('phone')?.invalid && (fg.get('phone')?.touched || fg.get('phone')?.dirty)">
+        <small *ngIf="fg.get('phone')?.hasError('required')">Phone is required</small>
+    </div><br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+<div *ngIf="message">
+    <p>Successfull</p>
+</div>
